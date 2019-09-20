@@ -1,4 +1,5 @@
 <?php
+include 'funcoes.php';
 //inicio aula 4
 //condicionais 
 $teste = true;
@@ -36,10 +37,15 @@ echo $chave."-> ".$valor."<br>";
 }
 echo"<br>";
 
-function soma($valor):string{
-    return $valor + 125;
-}
-echo (soma(100)+10);
+e0cho (soma(100)+10);
 echo"<br>";
 var_dump(soma(100)+15);
+
+echo"<br>";
+
+echo gera_md5('123456');
+echo"<br>";
+
+echo gera_base64('123456789');
+
 ?>
