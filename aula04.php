@@ -37,7 +37,7 @@ echo $chave."-> ".$valor."<br>";
 }
 echo"<br>";
 
-e0cho (soma(100)+10);
+echo (soma(100)+10);
 echo"<br>";
 var_dump(soma(100)+15);
 
