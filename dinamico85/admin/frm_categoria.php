@@ -3,7 +3,7 @@
         <form id="frmcategoria" name="frmcategoria" action="op_categoria.php" method="POST">
             <fieldset>
                 <legend>Cadastro de Categoria</legend>
-                    <label>
+                    <label> 
                         <span>Categoria</span>
                         <input type="text" name="txt_categoria" id="txt_categoria" value="">
                     </label>

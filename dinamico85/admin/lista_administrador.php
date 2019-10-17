@@ -28,19 +28,16 @@ if(count($admins_retornadas)>0){
         ?>
         <tr>
             <td><font size="2" face="verdana, arial" color="#0cc"><?php echo $admins['id']; ?></font></td>
-
             <td><font size="2" face="verdana, arial" color="#cc0"><?php echo $admins['nome']; ?></font></td>
-
             <td><font size="2" face="verdana, arial" color="#0cc"><?php echo $admins['email']; ?></font></td>
-
             <td><font size="2" face="verdana, arial" color="#0cc"><?php echo $admins['login']; ?></font></td>
-
             <td><font size="2" face="verdana, arial" color="#0cc"><?php echo $admins['senha']; ?></font></td>
-
             <th colspan="2"><font size="2" color="#fff">Opções</font></th>
-
             <td align="center"><font size="2" face="verdana, arial" color="#fff"><a href="principal.php?link=">Alterar</a></font></td>
+             <a href=""<?php echo"alterar_administrativa.php?id=".$adm['id']."&nome=".$adm['nome']."&email=".$adm['email']."&login=".$adm['login'];?>">Alterar</a>
             <td align="center"><font size="2" face="verdana, arial" color="#fff"><a href="principal.php?link=">Excluir</a></font></td>
+            <a href=""<?php echo"alterar_administrativa.php?excluir=1&id=".$adm['id']."&nome=".$adm['nome']."&email=".$adm['email']."&login=".$adm['login'];?>">Alterar</a>
+
         </tr>
 <?php }} ?>
     </table>

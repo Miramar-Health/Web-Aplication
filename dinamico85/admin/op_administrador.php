@@ -10,4 +10,9 @@ if(isset($_POST['cadastro'])){
   
     header('location:principal.php?link=10&msg=ok');
 }
+$id = filter_input(INPUT_GET,'id');
+$excluir = filter_input(INPUT_GET,'excluir');
+if (isset($id)){
+    header('location:principal.php?link=10&msg=ok');
+}
 ?>

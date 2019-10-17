@@ -35,6 +35,7 @@ if(count($banner_retornadas)>0){
             <td><font size="2" face="verdana, arial" color="#cc0"><?php echo $banner['alt']; ?></font></td>
             <td><font size="2" face="verdana, arial" color="#c0c"><?php echo $banner['banner_ativo']=='1'?'Sim':'Não'; ?></font></td>
             <td align="center"><font size="2" face="verdana, arial" color="#fff"><a href="principal.php?link=">Alterar</a></font></td>
+            <a href=""<?php echo"alterar_banner.php?id=".$banner['banner']."&nome=".$banner['nome']."&login=".banner['login']?>></a>
             <td align="center"><font size="2" face="verdana, arial" color="#fff"><a href="principal.php?link=">Excluir</a></font></td>
         </tr>
 <?php }} ?>
