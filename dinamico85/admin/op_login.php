@@ -8,6 +8,16 @@ if (empty($txt_login) || empty($txt_senha)) {
     echo 'preencha os dados de usuarios';
     exit;
 }
+$adm = new Administrador();
+
+$adm->login($txt_login,$txt_senha);
+if (!isset($adm->)) {
+    echo 'Usuario ou Senha do Usuario'
+    exit;
+}
+
+$_SESSION
+
 $query = "SELECT * FROM administrador WHERE login= :login AND senha = :senha";
 $cmd = $cn->prepare($query);
 $cmd->bindParam(':login',$txt_login);

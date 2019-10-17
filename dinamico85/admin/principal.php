@@ -1,3 +1,7 @@
+<?php
+require_once("../config");//abrir a sessao
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

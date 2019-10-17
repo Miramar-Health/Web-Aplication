@@ -1,3 +1,10 @@
+<?php
+include_once('../config.php');
+if (!$_SESSION['logado']){
+    header('Location: index.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
