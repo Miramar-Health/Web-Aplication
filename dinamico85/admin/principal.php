@@ -1,5 +1,7 @@
 <?php
 require_once("../config");//abrir a sessao
+if (!$_SESSION) {
+header('Location: index.php');}
 ?>
 
 <!DOCTYPE html>

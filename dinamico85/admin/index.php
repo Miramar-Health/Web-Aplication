@@ -1,7 +1,8 @@
 <?php
-include_once('../config.php');
+include_once('../config.php');//se nao logado então volte para index"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+if(isset($_SESSION))
 if (!$_SESSION['logado']){
-    header('Location: index.php');
+    header('Location: principal.php');
 }
 ?>
 
