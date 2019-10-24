@@ -34,9 +34,9 @@ if(count($admins_retornadas)>0){
             <td><font size="2" face="verdana, arial" color="#0cc"><?php echo $admins['senha']; ?></font></td>
             <th colspan="2"><font size="2" color="#fff">Opções</font></th>
             <td align="center"><font size="2" face="verdana, arial" color="#fff"><a href="principal.php?link=">Alterar</a></font></td>
-             <a href=""<?php echo"alterar_administrativa.php?id=".$adm['id']."&nome=".$adm['nome']."&email=".$adm['email']."&login=".$adm['login'];?>">Alterar</a>
+             <a href=""<?php echo"alterar_admin.php?id=".$adm['id']."&nome=".$adm['nome']."&email=".$adm['email']."&login=".$adm['login'];?>">Alterar</a>
             <td align="center"><font size="2" face="verdana, arial" color="#fff"><a href="principal.php?Link=">Excluir</a></font></td>
-            <a href=""<?php echo"alterar_admistrativa.php?excluir=1&id=".$adm['id']."&nome=".$adm['nome']."&email=".$adm['email']."&login=".$adm['login'];?>">Alterar</a>
+            <a href=""<?php echo"alterar_admin.php?excluir=1&id=".$adm['id']."&nome=".$adm['nome']."&email=".$adm['email']."&login=".$adm['login'];?>">Alterar</a>
 
         </tr>
 <?php }} ?>

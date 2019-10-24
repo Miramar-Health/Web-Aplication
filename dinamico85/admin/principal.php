@@ -48,6 +48,12 @@
                                     <li><a href="principal.php?link=11">Editar</a></li>
                                 </ul>
                         </div>
+                        <div id="sessao">usuario
+                    <ul>
+                        <li><a href="principal.php?link=12">Cadastrar</a></li>
+                        <li><a href="principal.php?link=13">Editar</a></li>
+                    </ul>
+                </div>
                     </div>
                         <div id="direito">
                             <?php
@@ -63,9 +69,10 @@
                                     $pag[7]="lista_noticia.php";
                                     $pag[8]="frm_banner.php";
                                     $pag[9]="lista_banner.php";
-                                    $pag[9]="lista_administrador.php";
-                                    $pag[9]="frm_administrador.php";
-
+                                    $pag[10]="frm_admin.php";
+                                    $pag[11]="lista_admin.php";
+                                    $pag[12]="frm_usuario.php";
+                                    $pag[13]="lista_usuario.php";
                                     if(!empty($link))
                                     {
                                         if(file_exists($pag[$link]))

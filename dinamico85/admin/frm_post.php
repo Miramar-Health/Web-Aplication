@@ -1,17 +1,17 @@
 
 <div id="box-cadastro">
     <div id="formulario-menor">
-        <form id="frmbanner" name="frmbanner" action="op_noticia.php" method="POST">
+        <form id="frm_post" name="frm_post" action="op_post.php" method="POST">
             <fieldset>
                  <?php
                     require_once('../config.php');
                     $cats = categoria::getListCategoria();
                     ?>
-                <legend>Cadastro de noticia</legend>
+                <legend>Cadastro de post</legend>
                 <label>
 
                 <span>categorias</span>
-                        <select  name="categoria" id="catehoria">
+                        <select  name="categoria" id="categoria">
                             <?php 
                             foreach($cats as $cat){
                                 ?>
@@ -22,23 +22,22 @@
                         </select>
 
                     <span>titulo</span>
-                    <input type="text" name="noticia_titulo" id="noticia_titulo" value="" required>
+                    <input type="text" name="txt_post_titulo" id="txt_post_titulo" value="" required>
+
+                    <span>descrição</span>
+                    <input type="text" name="txt_post_descricao" id="txt_post_descricao" value="" required>
 
                     <span>imagem</span>
-                    <input type="file" name="noticia_img" id="noticia_img" value="" required>
+                    <input type="text" name="txt_post_img" id="txt_post_img" value="" required>
 
-                    <span>visita</span>
-                    <input type="text" name="noticia_visita" id="noticia_visita" value="" required>
+                    <span>visitas</span>
+                    <input type="text" name="txt_post_visitas" id="txt_post_visitas" value="" required>
 
                     <span>data</span>
-                    <input type="date" name="noticia_data" id="noticia_data" value="" required>
-
-                    <span>noticia</span>
-                    <input type="text" name="noticia" id="noticia" value="" required>
+                    <input type="date" name="txt_post_data" id="txt_post_data" value="" required>
                 </label>
                   <div>
-                    <p id="p_ativo">Ativo 
-                    <input type="checkbox" name="ativo_noticia" id="check_ativo_noticia" checked> </p>
+                    <p id="p_ativo">Ativo <input type="checkbox" name="check_ativo_post" id="check_ativo_post" checked> </p>
                   </div>
                   <br>
                   <input type="submit" value="Cadastrar" class="botao" name="btn_cadastrar">

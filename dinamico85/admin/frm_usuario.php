@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="formulario-menor">
-        <form action="op_administrador.php" method="post">
+        <form action="op_usuario.php" method="post">
             <fieldset>
                 <input type="hidden" id="id" name="id">
                 <label for="">Nome</label>
