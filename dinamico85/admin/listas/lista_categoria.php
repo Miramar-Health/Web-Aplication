@@ -36,5 +36,6 @@ if(count($categorias_retornadas)>0){
         </tr>
 <?php }} ?>
     </table>
+    
 </body>
 </html>

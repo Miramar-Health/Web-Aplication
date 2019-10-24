@@ -1,23 +1,22 @@
 <?php
-include_once('../config.php');//se nao logado então volte para index"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-if(isset($_SESSION))
-if (!$_SESSION['logado']){
-    header('Location: principal.php');
+include_once('../config.php');
+if($_SESSION['logado']){
+    header('location: principal.php');
 }
-?>
 
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site Dinâmico - Área Adminsitrativa</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
     <div id="box-login">
         <div id="formulario-login">
-            <form id="frmlogin" name="frmlogin" action="op_login.php" method="post">
+            <form id="frmlogin" name="frmlogin" action="op_admin.php" method="post">
                 <fieldset>
                     <legend>Faça Login - Área Adminsitrativa</legend>
                     <label for=""><span>Login</span></label>
@@ -27,6 +26,9 @@ if (!$_SESSION['logado']){
                     <input type="password" name="txt_senha" id="txt_senha">
 
                     <input type="submit" name="logar" id="logar" value="logar" class="botao">
+                    <br>
+                    <span><?php echo (isset($_GET['msg']))?$_GET['msg']:"";?></span>
+
                 </fieldset>
             </form>
         </div>

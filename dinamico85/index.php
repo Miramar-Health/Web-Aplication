@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site Dinâmico UC12</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>  
     <div id="estrutura">
@@ -31,6 +31,8 @@
                    $link = $_GET['link'];
                    $pag[1] = "home.php";
                    $pag[5] = "produto.php";
+                   $_SESSION['id_noticia']= filter_input(INPUT_GET,'id_noticia');
+                    $pag[3] = "conteudo_noticia.php";
                    if (!empty($link)){
                        if(file_exists($pag[$link])){
                             include($pag[$link]);
@@ -47,28 +49,37 @@
             </div>
             <div id="direita">
                 <div id="noticias">
-                    <h3>Imagem notícia</h3>
-                    <div id="itens-noticias">
-                        <span>08/09/2018</span>
-                        <a href="index.php?link=">Lançamento do curso criando um site</a>
-                    </div>
-                    <div id="itens-noticias">
-                        <span>13/10/2018</span>
-                        <a href="index.php?link=">Lançamento do curso criando um site</a>
-                    </div>
-                    <div id="itens-noticias">
-                        <span>25/01/2019</span>
-                        <a href="index.php?link=">Lançamento do curso criando um site</a>
-                    </div>
+                    <?php
+                    require_once("config.php");
+                    $noticias = noticia::getListNoticia();
+                    foreach($noticias as $noticia){
+                        if ($noticia['noticia_ativo']=='s'){
+                            ?>
+                            <h3><img src="<?php echo $noticia['img_noticia'];?>" alt=""></h3>
+                            <div id="itens_noticia" >
+                            <span><?php echo $noticia['data_noticia'];?></span>
+                            <a href="index.php?link=3&id_noticia=<?php echo $noticia['id_noticia'];?>">
+                            <?php echo $noticia['titulo_noticia'];?></a>
+                            </div>
+                            <?php } }?>
+                        
+                    
                 </div>
+
+
+
+            </div>
+
+
                 <div>
                     Área do Administrador
                     <a href="admin/index.php">Acesso à área Administrativa</a>
                 </div>
+
+
                 <div id="rodape">
                     &copy; - Todos os direitos reservados
                 </div>
-            </div>
         </div>
 
 
