@@ -1,35 +1,34 @@
 <?php
-// sem sabotagem!
 require_once('../config.php');
-
+require_once('conexao.php');
 $txt_login = isset($_POST['txt_login'])?$_POST['txt_login']:'';
 $txt_senha = isset($_POST['txt_senha'])?$_POST['txt_senha']:'';
-//echo $txt_login.' - '.$txt_senha;
 
+if (empty($txt_login) || empty($txt_senha)) {
+    echo 'preencha os dados de usuarios';
+    exit;
+}
+$adm = new Administrador();
 
-if(empty($txt_login) || empty($txt_senha))  {
-    echo 'Preencha os dados de Usuário.';
+$adm->login($txt_login,$txt_senha);
+if (!isset($adm->)) {
+    echo 'Usuario ou Senha do Usuario'
     exit;
 }
 
-$adm = new Administrador();
 
-$adm->efetuarLogin($txt_login,$txt_senha);
-
-
-if(!isset($adm->getId)){
-echo "usuario ou senha incorretos";
-exit;
+$_SESSION
+$query = "SELECT * FROM administrador WHERE login= :login AND senha = :senha";
+$cmd = $cn->prepare($query);
+$cmd->bindParam(':login',$txt_login);
+$cmd->bindParam(':senha',$txt_senha);
+$cmd->execute();
+$usuario_retornado = $cmd->fetchAll(PDO::FETCH_ASSOC);
+if(count($usuario_retornado)>0){
+    print "<script type='text/javascript'>location.href='principal</script>";
 }
-
-//recuperar o primeiro usuario
-session_start();
-//registrando sessao de usuario
-$_SESSION['logado']= true;
-$_SESSION['id_adm']= $adm->getId;
-$_SESSION['nome_adm']= $adm->getNome;
-$_SESSION['login_adm']= $adm->getLogin;
-header('location: principal.php?link=')
-
+else{
+    print "META HTTP-EQUIV=REFRESH CONTENT = '0'; URL=index.php'>
+    <script type='text/javascript'>window.alert('login ou senha incorreta, tente novamente')</script>";}
 
 ?>

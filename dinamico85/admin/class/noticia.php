@@ -1,5 +1,5 @@
 <?php
-class noticia{
+class banner{
     private $id_noticia;
     private $id_categoria;
     private $titulo_noticia;
@@ -116,6 +116,9 @@ public function get_ImgNoticia(){
             $this->SetData($results[0]);
         }
     }
+
+
+
 //consultar todos
 
     public static function getListNoticia(){
@@ -123,17 +126,23 @@ public function get_ImgNoticia(){
         return $sql->select("SELECT *FROM noticias order by titulo_noticia");
     }
 
+
+
 //consultar por nome
 
     public static function searchBanner($nome_noticia){
         $sql = new Sql();
         return $sql->select("SELECT *FROM noticias WHERE titulo_noticia LIKE :noticia",array(":noticia"=>"%".$nome_noticia."%"));
     }
-//setando data
 
+
+
+
+//setando data
+    
     public function setData($_data){
-        $this->set_Id_noticia($_data['id_noticia']);
-        $this->set_Id_categoria($_data['id_categoria']);
+        $this->setId_noticia($_data['id_noticia']);
+        $this->setId_categoria($_data['id_categoria']);
         $this->set_TituloNoticia($_data['titulo_noticia']);
         $this->set_imgNoticia($_data['img_noticia']);
         $this->set_visitaNoticia($_data['visita_noticia']);
@@ -142,6 +151,10 @@ public function get_ImgNoticia(){
         $this->set_noticia($_data['noticia']);
         
     }
+
+
+
+
 // inserindo noticia
 
     public function insert(){
@@ -152,8 +165,8 @@ public function get_ImgNoticia(){
             ":img_noticia"=>$this->get_ImgNoticia(),
             ":visita_noticia"=>$this->get_VisitaNoticia(),
             ":data_noticia"=>$this->get_DataNoticia(),
-            ":noticia"=>$this->get_Noticia(),
-            ":noticia_ativo"=>$this->get_NoticiaAtivo()
+            ":noticia_ativo"=>$this->get_Noticia(),
+            ":noticia"=>$this->get_Noticia()
         ));
 
         if (count($results)>0){
@@ -181,13 +194,6 @@ public function get_ImgNoticia(){
 
     }
 
-   public function updateVisita($id){
-        $sql = new Sql();
-        $sql->query('UPDATE noticias SET visita_noticia = visita_notica +1 WHERE id_noticia=:id',
-        array(
-            ":id"=>$id
-        ));
-    }
 
 
     //deletando categoria
@@ -200,9 +206,8 @@ public function get_ImgNoticia(){
 
     //metodo construtor vazio
 
-    public function __construct($_id_noticia="",$_id_categoria="",$_titulo_noticia="",$_img_noticia="",$_visita_noticia="",$_data_noticia="",$_noticia_ativo="",$_noticia="")
+    public function __construct($_id_categoria="",$_titulo_noticia="",$_img_noticia="",$_visita_noticia="",$_data_noticia="",$_noticia_ativo="",$_noticia="")
     {
-    $this->id_noticia=$_id_noticia;
      $this->id_categoria=$_id_categoria;
      $this->titulo_noticia=$_titulo_noticia;
      $this->img_noticia=$_img_noticia;
@@ -211,5 +216,7 @@ public function get_ImgNoticia(){
      $this->noticia_ativo=$_noticia_ativo; 
      $this->noticia=$_noticia;
     }
+        
+    
 }
 ?>

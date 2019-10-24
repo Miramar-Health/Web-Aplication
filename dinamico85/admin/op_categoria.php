@@ -10,6 +10,5 @@ if(isset($_POST['txt_categoria'])){
         ':ativ'=>$ativo
     ));
     header('location:principal.php?link=2&msg=ok');
-    
 }
 ?>

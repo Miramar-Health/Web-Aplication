@@ -148,7 +148,7 @@ class banner{
 
 //update da banner
 
-    public function updatebanner($_idbanner,$_titulo_banner,$link_banner,$img_banner,$alt,$banner_ativo){
+    public function update($_idbanner,$_titulo_banner,$link_banner,$img_banner,$alt,$banner_ativo){
         $sql = new Sql();
         $sql->query("UPDATE banner SET titulo_banner=:titulo_banner,link_banner=:link_banner,img_banner=:img_banner,alt=:alt,banner_ativo=:banner_ativo WHERE id_banner=:id_banner",
         array(
