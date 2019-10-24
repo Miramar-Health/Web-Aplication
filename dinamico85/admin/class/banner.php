@@ -6,13 +6,8 @@ class banner{
     private $img_banner;
     private $alt;
     private $banner_ativo;
-
-
     // declaração de metodos de acesso(getters and setters)
-
     //definindo acesso ao id banner
-
-
     public function getId_banner(){
         return $this->id_banner;
     }
@@ -20,10 +15,7 @@ class banner{
     public function setId_banner($value){
         $this->id_banner = $value;
     }
-
-    
     //definindo acesso ao titulo banner
-
     public function get_TituloBanner(){
         return $this->titulo_banner;
     }
@@ -31,11 +23,7 @@ class banner{
     public function set_TituloBanner($value){
         $this->titulo_banner = $value;
     }
-
-
-    
     //definindo acesso ao link banner
-
     public function get_LinkBanner(){
         return $this->link_banner;
     }
@@ -43,10 +31,7 @@ class banner{
     public function set_LinkBanner($value){
         $this->link_banner = $value;
     }
-
-
       //definindo acesso a img banner
-
     public function get_ImgBanner(){
         return $this->img_banner;
     }
@@ -54,10 +39,7 @@ class banner{
     public function set_ImgBanner($value){
         $this->img_banner = $value;
     }
-
       //definindo acesso ao alt banner
-
-    
     public function get_AltBanner(){
         return $this->alt;
     }
@@ -65,10 +47,7 @@ class banner{
     public function set_AltBanner($value){
         $this->alt = $value;
     }
-
-
       //definindo acesso ao banner ativo
-
     public function get_BannerAtivo(){
         return $this->banner_ativo;
     }
@@ -76,12 +55,7 @@ class banner{
     public function set_BannerAtivo($value){
         $this->banner_ativo = $value;
     }
-
-
-
-//  final----------------
-
-
+// término
 // consultar por id
 
     public  function loadById_banner($_idbanner){

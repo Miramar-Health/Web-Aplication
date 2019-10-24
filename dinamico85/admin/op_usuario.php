@@ -1,6 +1,6 @@
 <?php
 require_once('../config.php');//mata! Aqui tem corage.
-// Inserir administrador
+// Inserir usuario
 if (isset($_POST['cadastro'])){
     $adm = new Usuario(
         $_POST['nome'],

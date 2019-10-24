@@ -40,8 +40,6 @@ a{    background-color:#EDEDED;
 #estrutura #rodape{height: 50px;}
 
 #rodape{text-align: center;}
-
-
 /*menu esquerda*/
 .esquerda{list-style: none;}
 .esquerda li {margin-left: 15px; font-size: 16px;}
@@ -76,8 +74,6 @@ a{    background-color:#EDEDED;
 
 /* criar uma div e colocar a classe banner*/
 
-
-
 /*---------Centro - Posters---------------------*/
 
 /*#conteiner-post{width: 568px;height: 400px;}*/
@@ -85,9 +81,7 @@ a{    background-color:#EDEDED;
 
 #ultimo-post-lancado{float: left;margin: 5px;height: 323px;padding: 10px;
                      border: solid 1px #ccc;width: 300px; }
-
-
-
+                     
  #ultimo-post-lancado h1{
 
  	color: #666;
