@@ -1,44 +1,55 @@
-<?php
-include_once('../config.php');
-$query = "select * from banner";
-$cmd = $cn->prepare($query);
-$cmd->execute();
-$banner_retornadas = $cmd->fetchAll(PDO::FETCH_ASSOC);
-if(count($banner_retornadas)>0){
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <title>Lista banner</title>
+    <title>Lista Administrador</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <table id="tb_banner" width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#fcfcfc">
         <tr bgcolor="#993300" align="center">
-            <th width="15%" height="2"><font size="2" color="#fff">Código</font></th>
-            <th width="60%" height="2"><font size="2" color="#fff">Titulo</font></th>
-            <th width="60%" height="2"><font size="2" color="#fff">Link</font></th>
-            <th width="60%" height="2"><font size="2" color="#fff">imagem</font></th>
-            <th width="60%" height="2"><font size="2" color="#fff">Alt</font></th>
-            <th width="15%" height="2"><font size="2" color="#fff">Ativo</font></th>
+            <th width="15%" height="2"><font size="2" color="#fff">id</font></th>
+            <th width="15%" height="2"><font size="2" color="#fff">titulo</font></th>
+            <th width="15%" height="2"><font size="2" color="#fff">link</font></th>
+            <th width="15%" height="2"><font size="2" color="#fff">imagem</font></th>
+            <th width="15%" height="2"><font size="2" color="#fff">alt</font></th>
+            <th width="15%" height="2"><font size="2" color="#fff">ativo</font></th>
             <th colspan="2"><font size="2" color="#fff">Opções</font></th>
         </tr>
+
         <?php 
-           foreach($banner_retornadas as $banner){
+            require_once('../config.php');
+            $banners = banner::getListBanner();
+            foreach($banners as $banner){
         ?>
         <tr>
-            <td><font size="2" face="verdana, arial" color="#0cc"><?php echo $banner['id_banner']; ?></font></td>
-            <td><font size="2" face="verdana, arial" color="#cc0"><?php echo $banner['titulo_banner']; ?></font></td>
-            <td><font size="2" face="verdana, arial" color="#cc0"><?php echo $banner['link_banner']; ?></font></td>
-            <td><font size="2" face="verdana, arial" color="#cc0"><?php echo $banner['img_banner']; ?></font></td>
-            <td><font size="2" face="verdana, arial" color="#cc0"><?php echo $banner['alt']; ?></font></td>
-            <td><font size="2" face="verdana, arial" color="#c0c"><?php echo $banner['banner_ativo']=='1'?'Sim':'Não'; ?></font></td>
-            <td align="center"><font size="2" face="verdana, arial" color="#fff"><a href="principal.php?link=">Alterar</a></font></td>
-            <a href=""<?php echo"alterar_banner.php?id=".$banner['banner']."&nome=".$banner['nome']."&login=".banner['login']?>></a>
-            <td align="center"><font size="2" face="verdana, arial" color="#fff"><a href="principal.php?link=">Excluir</a></font></td>
+            <td><font size="2" face="verdana, arial" color="#0cc">
+                <?php echo $banner['id_banner']; ?></font></td>
+            <td><font size="2" face="verdana, arial" color="#cc0">
+                <?php echo  $banner['titulo_banner']; ?></font></td>
+            <td><font size="2" face="verdana, arial" color="#c0c">
+                <?php echo  $banner['link_banner']; ?></font></td>
+            <td><font size="2" face="verdana, arial" color="#c0c">
+                <?php echo  $banner['img_banner']; ?></font></td>
+                <td><font size="2" face="verdana, arial" color="#c0c">
+                <?php echo  $banner['alt']; ?></font></td>
+                <td><font size="2" face="verdana, arial" color="#c0c">
+                <?php echo  $banner['banner_ativo']; ?></font></td>
+
+            <td align="center"><font size="2" face="verdana, arial" color="#fff">
+                <a href="<?php echo "alterar_banner.php?id_banner=".$banner['id_banner'].
+                "&titulo_banner=".$banner['titulo_banner']."&link_banner=".$banner['link_banner']."&img_banner=".$banner['img_banner']."&alt=".$banner['alt']."&banner_ativo=".$banner['banner_ativo'];?>">Alterar</a>
+            </font></td>
+
+
+            <td align="center"><font size="2" face="verdana, arial" color="#fff">
+                <a href="<?php echo "op_banner.php?excluir=1&id=".$banner['id_banner']; ?>">Excluir</a
+            </font></td>
         </tr>
-<?php }} ?>
-    </table> 
+
+
+
+
+<?php } ?>
+    </table>
 </body>
 </html>

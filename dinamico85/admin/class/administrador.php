@@ -5,13 +5,9 @@ class Administrador{
     private $email;
     private $login;
     private $senha;
-
-
     // declaração de metodos de acesso(getters and setters)
 
-    //----------------------//
-    //definindo acesso ao id//
-    //----------------------//
+    //definindo acesso ao id
     public function getId(){
         return $this->id;
     }
@@ -19,10 +15,8 @@ class Administrador{
     public function setId($value){
         $this->id = $value;
     }
+    //definindo acesso ao nome
 
-    //-----------------------//
-    //definindo acesso ao nome//
-    //-----------------------//
     public function getNome(){
         return $this->nome;
     }
@@ -31,10 +25,8 @@ class Administrador{
         $this->nome = $value;
     }
 
+    //definindo acesso ao email
 
-    //----------------------------------//
-    //definindo acesso ao email do admin//
-    //---------------------------------//
     public function getEmail(){
         return $this->email;
     }
@@ -42,7 +34,6 @@ class Administrador{
     public function setEmail($value){
         $this->email = $value;
     }
-
     
     //definindo acesso ao login
 
@@ -52,17 +43,17 @@ class Administrador{
 
     public function setLogin($value){
         $this->login = $value;
-    }
-     //--------------------------------//
-    //definindo acesso ao senha do admin//
-    //----------------------------------//
+    }    
+    //definindo acesso ao senha
 
     public function getSenha(){
         return $this->senha;
     }
+
     public function setSenha($value){
         $this->senha = $value;
     }
+
     public  function loadById($_id){
         $sql = new Sql();
         $results = $sql->select("SELECT * FROM administrador WHERE id =:id", array(':id'=>$_id));
@@ -70,6 +61,7 @@ class Administrador{
             $this->SetData($results[0]);
         }
     }
+
     public static function getList(){
         $sql = new Sql();
         return $sql->select("SELECT *FROM administrador order by nome");
@@ -91,8 +83,10 @@ class Administrador{
         $this->setNome($_data['nome']);
         $this->setEmail($_data['email']);
         $this->setLogin($_data['login']);
-        $this->setSenha($_data['senha']);  
+        $this->setSenha($_data['senha']);
+        
     }
+
     public function  insert(){
         $sql = new Sql();
         $results = $sql->select("CALL sp_admin_insert(:nome, :email, :login, :senha)",array(
@@ -101,6 +95,7 @@ class Administrador{
             ":login"=>$this->getLogin(),
             ":senha"=>md5($this->getSenha())
         ));
+
         if (count($results)>0){
             $this->SetData($results[0]);
         }
@@ -114,7 +109,6 @@ class Administrador{
             ":email"=>$_email,
             ":login"=>$_login
         ));
-
     }
     public function delete(){
         $sql = new Sql();

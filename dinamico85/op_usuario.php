@@ -20,7 +20,6 @@ spl_autoload_register(function($nome_classe){
 
     }
 });
-
 if(isset($_POST['cadastro_usuario'])){
     $nome=$_POST['nome'];
     $email=$_POST['email'];
@@ -97,10 +96,10 @@ function upload_imagem()
     }
 
 }
+
 //Criar constantes do servidor de banco de dados
 define ('IP_SERVER_DB', '127.0.0.1');
-define ('HOSTNAME','ITQ0586766W10-1');
 define ('NOME_BANCO','dinamico85db');
 define ('USER_DB','root');
-define ('PASS_DB','');
+define ('PASS_DB','usbw');
 ?>

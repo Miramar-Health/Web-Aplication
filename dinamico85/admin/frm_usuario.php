@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Formulário usuario</title>
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
     <div id="formulario-menor">
@@ -13,19 +13,23 @@
             <fieldset>
                 <input type="hidden" id="id" name="id">
                 <label for="">Nome</label>
-                <input typeg="text" name="nome" required>
-                <br>
+                <input type="text" name="nome" required>
+                <p>
                 <label for="">Email</label>
-                <input type="text" name="Email" required>
-                <br>
+                <input type="text" name="email" required>
+                <p>
                 <label for="">Login</label>
-                <input type="text" name="Login" required>
-                <br>
+                <input type="text" name="login" required>
+                <p>
                 <label for="">Senha</label>
-                <input type="text" name="Senha" required>
-                <br>
+                <input type="password" name="senha" required>
+                <p>
                 <label for="">Confirma Senha</label>
-                <input type="password" name="confirma_senha">
+                <input type="password" name="confirma_senha" required>
+            
+                  <br>
+                <input type="submit" name="cadastro" value="Cadastra " class="botao">
+
             </fieldset>
         </form>
     </div>

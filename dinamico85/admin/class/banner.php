@@ -24,6 +24,7 @@ class banner{
         $this->titulo_banner = $value;
     }
     //definindo acesso ao link banner
+
     public function get_LinkBanner(){
         return $this->link_banner;
     }
@@ -32,6 +33,7 @@ class banner{
         $this->link_banner = $value;
     }
       //definindo acesso a img banner
+
     public function get_ImgBanner(){
         return $this->img_banner;
     }
@@ -39,6 +41,7 @@ class banner{
     public function set_ImgBanner($value){
         $this->img_banner = $value;
     }
+
       //definindo acesso ao alt banner
     public function get_AltBanner(){
         return $this->alt;
@@ -55,7 +58,7 @@ class banner{
     public function set_BannerAtivo($value){
         $this->banner_ativo = $value;
     }
-// término
+
 // consultar por id
 
     public  function loadById_banner($_idbanner){
@@ -66,8 +69,6 @@ class banner{
         }
     }
 
-
-
 //consultar todos
 
     public static function getListBanner(){
@@ -75,16 +76,12 @@ class banner{
         return $sql->select("SELECT *FROM banner order by titulo_banner");
     }
 
-
-
 //consultar por nome
 
     public static function searchBanner($nome_banner){
         $sql = new Sql();
         return $sql->select("SELECT *FROM banner WHERE titulo_banner LIKE :banner",array(":banner"=>"%".$nome_banner."%"));
     }
-
-
 
 //setando data
     
@@ -95,10 +92,8 @@ class banner{
         $this->set_img_banner($_data['img_banner']);
         $this->set_altBanner($_data['alt']);
         $this->set_BannerAtivo($_data['banner_ativo']);
-        
+       
     }
-
-
 // inserindo banner
 
     public function insert(){
@@ -116,13 +111,9 @@ class banner{
         }
     }
 
-
-
-
-
 //update da banner
 
-    public function update($_idbanner,$_titulo_banner,$link_banner,$img_banner,$alt,$banner_ativo){
+    public function updatebanner($_idbanner,$_titulo_banner,$link_banner,$img_banner,$alt,$banner_ativo){
         $sql = new Sql();
         $sql->query("UPDATE banner SET titulo_banner=:titulo_banner,link_banner=:link_banner,img_banner=:img_banner,alt=:alt,banner_ativo=:banner_ativo WHERE id_banner=:id_banner",
         array(
@@ -133,13 +124,8 @@ class banner{
             ":alt"=>$alt,
             ":banner_ativo"=>$banner_ativo
         ));
-
     }
-
-
-
     //deletando categoria
-
     public function delete(){
         $sql = new Sql();
         $sql->query("DELETE FROM banner WHERE id_banner=:id_banner",array(":id_banner"=>$this->getId_banner()()
@@ -156,7 +142,5 @@ class banner{
      $this->alt=$_alt;
      $this->banner_ativo=$_banner_ativo;    
     }
-        
-    
 }
 ?>

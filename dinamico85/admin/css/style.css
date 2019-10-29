@@ -16,11 +16,10 @@
     height: 77px;
     margin: 15px 0 0 285px;
     float: left;
-
 }
 
 #corpo{width: 970px;
-overflow: hidden; background-color: red}
+overflow: hidden;}
 
 #esquerdo{
     width: 191px;
@@ -52,7 +51,7 @@ overflow: hidden; background-color: red}
     padding: 5px 0 40px 2px;
     height: 25px;
     font-size: 15px;
-    font-family: verdana,arial,Helvetuca,sans-serif;color: #0099ff;
+    font-family: verdana,arial,sans-serif;color: #0099ff;
 }
 
 #direito{
@@ -113,7 +112,7 @@ width: 760px;
     display:block;
     margin:10px auto;
     cursor:pointer;
-    background:rgb(0, 0, 0);
+    background:#069;
 }
 
 /*===========formulario categoria=============*/
@@ -121,7 +120,7 @@ width: 760px;
 #formulario-menor form{
     width: 350px;
     margin: 20px auto;
-    border:2px solid red;
+    border:2px solid #ccc;
 }
 
 #formulario-menor fieldset{
@@ -158,5 +157,4 @@ width: 760px;
     cursor:pointer;
     background:#069;
 }
-
 

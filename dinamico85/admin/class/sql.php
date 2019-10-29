@@ -1,29 +1,31 @@
 <?php
-Class Sql extends PDO{//Qualquer objeto é pdo
-   private $cn;
-   public function __construct(){
-     $this->cn = new PDO("mysql:host=".IP_SERVER_DB.";dbname=dinamico85db","root"."");
-     //$cn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-   }
-   public function setParams($comando, $parametros = array()){ // recebe dois parametros //método atribui parametroS para uma quert sql
-  foreach($parametros as $key => $value)
-       {
-  $this->setParam($comando,$key,$value);
-       }
-     }
-     public function setParam($cmd,$key,$value){
-       $cmd->bindParam($key, $value);// = (atribuição) == (comparação) === (comparação absoluta) => (associação) -> ()
-     }
-     public function query($comando, $params, $mode = array())//função query recebe comando SQL
-     {
-      $cmd = $this->cn->prepare($cmd);
-      $this->setParams($cmd, $params);//recebdno matriz de parametros
-      $cmd->execute();
+class Sql extends PDO{
+    private $cn;
+    public function __construct()
+    {
+        $this->cn=new PDO("mysql:host=".IP_SERVER_DB.";dbname=".NOME_BANCO,USER_DB,PASS_DB);
+    }
+    // metodo atribui parametros para uma query Sql
+    public function setParams($comando, $parametros = array()){
+        foreach($parametros as $key=>$value){
+            $this->setParam($comando, $key, $value);
+        }
+    }
+    // = (atribuição)| ==(coomparação) | ===(comparação absoluta) | =>(associação) | ->(propriedade)
 
-     }
-     public function select($comandoSql,$params = array()){
-       $cmd = $this->query($comandoSql,$params);//chama o metodo query, chamando todas acima 
-       return $cmd->fetchAll(PDO::FETCH_ASSOC);//retorna uma tabela associativa
-     }
-  }
+    public function setParam($cmd, $key, $value){
+        $cmd->bindParam($key, $value);
+    }
+
+    public function query($comandoSql, $params = array()){
+        $cmd = $this->cn->prepare($comandoSql);
+        $this->setParams($cmd, $params);
+        $cmd->execute();
+        return $cmd;
+    }
+    public function select($comandoSql, $params = array()){
+        $cmd = $this->query($comandoSql,$params);
+        return $cmd->fetchAll(PDO::FETCH_ASSOC);
+    }
+}
 ?>

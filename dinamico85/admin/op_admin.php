@@ -15,6 +15,10 @@ if (isset($_POST['cadastro'])){
     }
     else{ header('location:principal.php?link=10&msg=erro');}
 }
+
+
+
+
 // excluir/deletar Administrador
 $id = filter_input(INPUT_GET,'id');
 $excluir = filter_input(INPUT_GET,'excluir');
@@ -25,12 +29,22 @@ if(isset($id) && $excluir==1){
     header('location:principal.php?link=10&msg=ok');
 }
 
-//Alterarando o administrador
+
+
+
+//Alterar o Administrador
 if (isset($_POST['alterar'])){
     $adm = new Administrador();
     $adm->update($_POST['id'],$_POST['nome'],$_POST['email'],$_POST['login']);
     header('location:principal.php?link=10&msg=ok');    
 }
+
+
+
+
+
+
+
 
 if(isset($_POST['txt_login'])&&isset($_POST['logar'])){
 $txt_login = isset($_POST['txt_login'])?$_POST['txt_login']:'';
@@ -41,14 +55,19 @@ if(empty($txt_login) || empty($txt_senha))  {
     header('location: index.php?msg=preencha os dados de usuario');
     exit;
 }
+
 $adm = new Administrador();
 
 $adm->efetuarLogin($txt_login,$txt_senha);
+
+
 if(($adm->getId()==null)){
 
     header('location: index.php?msg=usuario ou senha invalidos');
 exit;
 }
+
+
 //registrando sessao de usuario
 $_SESSION['logado']= true;
 $_SESSION['id_adm']= $adm->getId();
@@ -65,4 +84,7 @@ $_SESSION['nome_adm']= null;
 $_SESSION['login_adm']= null;
 header('location:index.php');
 }
+
+
+
 ?>

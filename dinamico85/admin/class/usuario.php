@@ -5,11 +5,12 @@ class Usuario{
     private $email;
     private $login;
     private $senha;
+
+
     // declaração de metodos de acesso(getters and setters)
 
-   //-------------------------------//
-  //define o acesso pro Id da classe//
-   //-------------------------------//
+    //definindo acesso ao id
+
 
     public function getId(){
         return $this->id;
@@ -20,9 +21,8 @@ class Usuario{
     }
 
     
-  //-------------------------------//
-  //define o acesso para o nome//
-  //-------------------------------//
+    //definindo acesso ao nome
+
     public function getNome(){
         return $this->nome;
     }
@@ -31,7 +31,10 @@ class Usuario{
         $this->nome = $value;
     }
 
+
+    
     //definindo acesso ao email
+
     public function getEmail(){
         return $this->email;
     }
@@ -39,8 +42,10 @@ class Usuario{
     public function setEmail($value){
         $this->email = $value;
     }
+
     
     //definindo acesso ao login
+
     public function getLogin(){
         return $this->login;
     }
@@ -48,17 +53,13 @@ class Usuario{
     public function setLogin($value){
         $this->login = $value;
     }
-
     //definindo acesso ao senha
-
     public function getSenha(){
         return $this->senha;
     }
-
     public function setSenha($value){
         $this->senha = $value;
     }
-
     public  function loadById($_id){
         $sql = new Sql();
         $results = $sql->select("SELECT * FROM usuario WHERE id =:id", array(':id'=>$_id));
@@ -66,6 +67,7 @@ class Usuario{
             $this->SetData($results[0]);
         }
     }
+
     public static function getList(){
         $sql = new Sql();
         return $sql->select("SELECT *FROM usuario order by nome");
@@ -75,6 +77,7 @@ class Usuario{
         $sql = new Sql();
         return $sql->select("SELECT *FROM usuario WHERE nome LIKE :nome",array(":nome"=>"%".$nome_adm."%"));
     }
+
     public function efetuarLogin($_login,$_senha){
         $sql = new Sql();
         $senha_cript = md5($_senha);
@@ -83,17 +86,17 @@ class Usuario{
             $this->SetData($results[0]);
         }
     }
+    
     public function setData($_data){
         $this->setId($_data['id']);
         $this->setNome($_data['nome']);
         $this->setEmail($_data['email']);
         $this->setLogin($_data['login']);
-        $this->setSenha($_data['senha']);
-        
+        $this->setSenha($_data['senha']);   
     }
     public function  insert(){
         $sql = new Sql();
-        $results = $sql->select("CALL sp_user_insert(:nome, :email, :login, :senha)",array(
+        $results = $sql->select("CALL sp_usuario_insert(:nome, :email, :login, :senha)",array(
             ":nome"=>$this->getNome(),
             ":email"=>$this->getEmail(),
             ":login"=>$this->getLogin(),
@@ -104,9 +107,10 @@ class Usuario{
             $this->SetData($results[0]);
         }
     }
+
     public function update($_id,$_nome,$_email,$_login){
         $sql = new Sql();
-        $sql->query("UPDATE user SET nome=:nome,email=:email,login=:login  WHERE id=:id",
+        $sql->query("UPDATE usuario SET nome=:nome,email=:email,login=:login  WHERE id=:id",
         array(
             ":id"=>$_id,
             ":nome"=>$_nome,

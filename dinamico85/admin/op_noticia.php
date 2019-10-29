@@ -3,21 +3,25 @@
 require_once('../config.php');//mata! Aqui tem corage.
 // Inserir noticia
 if (isset($_POST['btn_cadastrar'])){
-    $noticia = new noticia(
+    $image=upload_imagem();
+    $noticia = new noticia(0,
         $_POST['categoria'],
-        $_POST['txt_noticia_titulo'],
-        $_POST['txt_noticia_img'],
-        $_POST['txt_noticia_visita'],
-        $_POST['txt_noticia_data'],
-        isset($_POST['check_ativo_noticia'])? 's':'n',
-        $_POST['txt_noticia']
+        $_POST['noticia_titulo'],
+        $image[0],
+        $_POST['noticia_visita'],
+        $_POST['noticia_data'],
+        isset($_POST['ativo_noticia'])? 's':'n',
+        $_POST['noticia']
        
     );
+    var_dump($noticia);
     $noticia->insert();
     if($noticia->get_Id_noticia()!=null){
         header('location:principal.php?link=6&msg=ok');
     }
-    else{ header('location:principal.php?link=6&msg=erro');}
+    else{ header('location:principal.php?link=6&msg=erro'  );
+    }
+  
 }
 
 
@@ -34,6 +38,7 @@ if(isset($id) && $excluir==1){
 }
 
 
+
 //Alterar a noticia
 if (isset($_POST['alterar'])){
     $noticia = new noticia();
@@ -42,9 +47,10 @@ if (isset($_POST['alterar'])){
     $_POST['titulo_noticia'],
     $_POST['img_noticia'],
     $_POST['visita_noticia'],
-    $_POST['data_noticia'],
-    $_POST['noticia'],
-    $_POST['noticia_ativo']);
+    $_POST['data_noticia'],  
+    isset($_POST['noticia_ativo'])? 's':'n',
+    $_POST['noticia']);
+  
     header('location:principal.php?link=7&msg=ok'); 
 }
 

@@ -1,31 +1,25 @@
-<?php
-include_once('../config.php');
-if($_SESSION['logado']){
-    header('location: principal.php');
-}
 
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Dinâmico - Área Adminsitrativa</title>
+    <title>area de login de usuario</title>
     <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
     <div id="box-login">
         <div id="formulario-login">
-            <form id="frmlogin" name="frmlogin" action="op_admin.php" method="post">
+            <form id="frmlogin" name="frmlogin" action="op_usuario.php" method="post">
                 <fieldset>
-                    <legend>Faça Login - Área Adminsitrativa</legend>
+                    <legend>Faça Login - area do usuario</legend>
                     <label for=""><span>Login</span></label>
-                    <input type="text" name="txt_login" id="txt_login">
+                    <input type="text" name="txt_login_usuario" id="txt_login_usuario">
 
                     <label for=""><span>Senha</span></label>
-                    <input type="password" name="txt_senha" id="txt_senha">
+                    <input type="password" name="txt_senha_usuario" id="txt_senha_usuario">
 
-                    <input type="submit" name="logar" id="logar" value="logar" class="botao">
+                    <input type="submit" name="logar_usuario" id="logar_usuario" value="logar_usuario" class="botao">
                     <br>
                     <span><?php echo (isset($_GET['msg']))?$_GET['msg']:"";?></span>
 

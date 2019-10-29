@@ -1,7 +1,7 @@
 
 <div id="box-cadastro">
     <div id="formulario-menor">
-        <form id="frmbanner" name="frmbanner" action="op_noticia.php" method="POST">
+        <form id="frmbanner" name="frmbanner" action="op_noticia.php" method="POST" enctype="multipart/form-data">
             <fieldset>
                  <?php
                     require_once('../config.php');
@@ -11,7 +11,7 @@
                 <label>
 
                 <span>categorias</span>
-                        <select  name="categoria" id="catehoria">
+                        <select  name="categoria" id="categoria">
                             <?php 
                             foreach($cats as $cat){
                                 ?>
@@ -25,7 +25,7 @@
                     <input type="text" name="noticia_titulo" id="noticia_titulo" value="" required>
 
                     <span>imagem</span>
-                    <input type="file" name="noticia_img" id="noticia_img" value="" required>
+                    <input type="file" name="foto" id="foto" value="" required>
 
                     <span>visita</span>
                     <input type="text" name="noticia_visita" id="noticia_visita" value="" required>

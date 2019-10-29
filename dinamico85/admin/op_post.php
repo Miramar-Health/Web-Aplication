@@ -11,6 +11,7 @@ if (isset($_POST['btn_cadastrar'])){
         $_POST['txt_post_visitas'],
         $_POST['txt_post_data'],
         isset($_POST['check_ativo_post'])? 's':'n'
+       
     );
     $post->insert();
     if($post->get_Id_post()!=null){
@@ -18,6 +19,7 @@ if (isset($_POST['btn_cadastrar'])){
     }
     else{ header('location:principal.php?link=4&msg=erro');}
 }
+
 // excluir/deletar post
 $id = filter_input(INPUT_GET,'id');
 $excluir = filter_input(INPUT_GET,'excluir');

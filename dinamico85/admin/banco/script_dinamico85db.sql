@@ -157,4 +157,3 @@ ALTER TABLE `noticias`
 ALTER TABLE `post`
   MODIFY `id_post` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
-?>
