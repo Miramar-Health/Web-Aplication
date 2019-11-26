@@ -1,10 +1,10 @@
-<?php 
+<!-- <i?php 
 
 require_once("config.php");
 if(!$_SESSION['logado']){
     header('location: index.html');
 }
-?>
+?> -->
 
 <!DOCTYPE html>
 <html lang="pt-br">
